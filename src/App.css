@@ -1,38 +1,258 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Radley:ital@0;1&display=swap');
+
+:root {
+    --color-one: #4a7ba9;
+}
+p, button, a, form, input, textarea {
+    font-family: "Noto Sans", sans-serif;
+}
+h1, h2, h3, h4, h5, h6, .editor input, .editor select {
+    font-family: "Radley", serif;
+}
+body {
+    background-color: var(--color-one);
+    margin: 0;
+    margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    position: relative;
+}
+main {
+    max-width: 1200px;
+    position: relative;
+    margin: auto;
+    margin-top: 150px;
+}
+main .page-heading {
+    z-index: 0;
+    color: white;
+    font-size: 90px;
+    text-align: center;
+    margin: 5px;
+}
+button, a {
+    cursor: pointer;
+}
+button {
+    font-size: 15px;
+    border: 1px solid var(--color-one);
+    border-radius: 5px;
+    background: white;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.feed, .profile .posts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+.feed .post, .profile .post {
+    position: relative;
+    width: 90%;
+    background-color: white;
+    border-radius: 5px;
+    padding: 5px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    margin: auto;
+}
+.feed .post .category, .profile .post .category {
+    color: var(--color-one);
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    margin: 0;
+    transform: translate(0%, -50%);
+    font-size: 60px;
+    z-index: 1;
+    opacity: 0.25;
+    text-transform: uppercase;
+}
+.feed .page-selector {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 5px;
+}
+.feed .page-selector p {
+    color: white;
+    font-size: 20px;
+    margin: 0;
+}
+.feed .page-selector button {
+    background: none;
+    color: white;
+    border: none;
+    border-radius: 2px;
+    font-size: 20px;
+    transition: .15625s;
+}
+.feed .page-selector button:hover {
+    background-color: white;
+    color: var(--color-one)
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.full-post {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+button.back {
+    margin-bottom: 30px;
+    width: 100px;
+}
+.full-post h1, .editor input {
+    background: white;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 60px;
+    margin: 0;
+    filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.25));
+}
+.full-post p:not(.category), .editor textarea {
+    background: white;
+    text-align: justify;
+    padding: 30px;
+    font-size: 18px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+}
+.editor textarea {
+    width: 100%;
+    height: 50vh;
+    resize: none;
+}
+.full-post .category, .editor select {
+    margin: 20px;
+    margin-bottom: -10px;
+    border-radius: 3px;
+    padding: 0 5px;
+    z-index: 20;
+    font-size: 20px;
+    position: absolute;
+    top: 25px;
+    font-family: "Radley", serif;
+    background: var(--color-one);
+    color: white;
+    display: flex;
+}
+.full-post .owner-controls, .editor .controls {
+    font-family: "Radley", serif;
+    position: fixed;
+    bottom: 10px;
+    right: 15px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0px 0px 40px rgba(0, 0, 0, 1);
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 20px;
+}
+.full-post .owner-controls button, .editor .controls button {
+    font-family: "Radley", serif;
+    background-color: var(--color-one);
+    border: none;
+    color: white;
+    font-size: 20px;
+    transition: .3125s;
+}
+.full-post .owner-controls button#delete:hover {
+    background-color: rgb(240, 0, 0);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.editor {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
-.App-link {
-  color: #61dafb;
+.profile:not(div) {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.profile .user-info {
+    background-color: white;
+    padding: 5px 25px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.25);
+}
+.profile .user-info h1 {
+    font-size: 45px;
+    margin: 0;
+}
+.profile .user-info img {
+    border-radius: 50%;
+    margin: 30px 0;
+}
+.profile .user-info button {
+    margin-left: auto;
+    font-size: 20px;
+}
+.profile .posts h2 {
+    color: white;
+    margin-left: 10px;
+    font-size: 40px;
+    margin: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.bg {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    z-index: 4000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.bg .window {
+    padding: 15px;
+    background-color: white;
+    border-radius: 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.bg .window .heading {
+    font-size: 25px;
+    margin: 0;
+}
+.bg .window p {
+    background: none;
+    box-shadow: none;
+}
+.bg .window .confirmation {
+    display: flex;
+    gap: 15px;
+}
+.bg .window .confirmation .cancel:hover {
+    border-color: transparent;
+    background-color: black;
+    color: white;
+    transition: .15625s;
+}
+.bg .window .confirmation .delete {
+    color: rgb(240, 0, 0);
+    border-color: rgb(240, 0, 0);
+}
+.bg .window .confirmation .delete:hover {
+    color: white;
+    border-color: transparent;
+    background-color: rgb(200, 0, 0);
+    transition: .15625s;
 }

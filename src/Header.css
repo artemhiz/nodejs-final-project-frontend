@@ -1,0 +1,29 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 5px;
+    box-shadow: 0px 5px 30px black;
+    position: fixed;
+    min-width: 99.5vw;
+    top: 0;
+    right: 0;
+    z-index: 200;
+}
+header div.account, header div.account .profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+header div.account .profile {
+    cursor: pointer;
+}
+header .profile img {
+    height: 50px;
+    border-radius: 50%;
+}
+header .profile p {
+    font-weight: bold;
+    color: var(--color-one);
+}
